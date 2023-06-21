@@ -1,6 +1,5 @@
-<?php require_once "../controla_sessao/controla.php"; ?>
 <?php
-
+//José Carvalho Neto
 require_once "../conexao.php";
 
 
@@ -11,7 +10,7 @@ if(isset($_GET['id']))
 $id = $_GET['id'];
 
 
-$sql = "DELETE FROM `venda` WHERE  `id= ? ; ";
+$sql = "DELETE FROM `venda` WHERE  `id`= ? ; ";
 
 
 $comando = $conexao->prepare($sql);
@@ -25,4 +24,6 @@ $comando->execute();
 }
 
 
+
 header("Location: index.php");
+

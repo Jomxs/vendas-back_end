@@ -1,29 +1,20 @@
 <?php
-
+//José Carvalho Neto
 require_once "../conexao.php";
-
 
 if(isset($_GET['id']))
 {
+    $id = $_GET['id'];
 
+    $sql = "SELECT * FROM `venda` WHERE  `id`= ? ; ";
 
-$id = $_GET['id'];
+    $comando = $conexao->prepare($sql);
 
+    $comando->bind_param("i", $id);
 
-$sql = "SELECT * FROM `vendas` WHERE  `id`= ? ; ";
+    $comando->execute();
 
+    $resultado = $comando->get_result();
 
-$comando = $conexao->prepare($sql);
-
-
-$comando->bind_param("i", $id);
-
-
-$comando->execute();
-
-$resultado = $comando->get_result();
-
-
-$produto = $resultado->fetch_assoc();
-
+    $venda = $resultado->fetch_assoc();
 }

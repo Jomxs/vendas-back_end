@@ -1,12 +1,10 @@
 <?php
-
+//José Carvalho Neto
 require_once "../conexao.php";
 
 
-$vendas = [];
-$vendas_trabalho_back_end = [];
 
-$sql = "SELECT * FROM `venda' ";
+$sql = "SELECT * FROM venda";
 
 
 $comando = $conexao->prepare($sql);
